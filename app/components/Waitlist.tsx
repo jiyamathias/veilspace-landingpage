@@ -38,7 +38,7 @@ export default function Waitlist() {
           pointerEvents: 'none', filter: 'blur(20px)',
         }} />
         <div style={{ position: 'relative', zIndex: 1 }}>
-          <div style={{
+          {/* <div style={{
             display: 'inline-flex', alignItems: 'center', gap: 8,
             background: 'rgba(124, 111, 255, 0.1)',
             border: '1px solid rgba(124, 111, 255, 0.25)',
@@ -48,7 +48,7 @@ export default function Waitlist() {
           }}>
             <div style={{ width: 6, height: 6, background: 'var(--primary-glow)', borderRadius: '50%', boxShadow: '0 0 8px var(--primary-glow)', animation: 'pulse-anim 2s ease infinite' }} />
             Early Access · Limited Spots
-          </div>
+          </div> */}
 
           <h2 style={{
             fontFamily: "'Cinzel', serif",
@@ -78,7 +78,7 @@ export default function Waitlist() {
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                   onKeyDown={e => e.key === 'Enter' && handleSubmit()}
-                  placeholder={inputError ? 'Please enter a valid email' : 'your@email.com'}
+                  placeholder={inputError ? 'Please enter a valid email' : 'you@email.com'}
                   disabled={status === 'loading'}
                   style={{
                     flex: 1, minWidth: 200,

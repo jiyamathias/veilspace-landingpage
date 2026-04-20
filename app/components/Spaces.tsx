@@ -28,10 +28,20 @@ export default function Spaces() {
         padding: '100px 5%',
       }}
     >
-      <div className="reveal" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 40, flexWrap: 'wrap', gap: 16 }}>
+      <div
+        className="reveal spaces-header-row"
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'flex-end',
+          marginBottom: 40,
+          flexWrap: 'wrap',
+          gap: 16,
+        }}
+      >
         <div>
           <div className="section-label">Spaces</div>
-          <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: 'clamp(28px,4vw,48px)', fontWeight: 700, color: 'var(--text-high)', lineHeight: 1.15, letterSpacing: '-0.5px', marginBottom: 0 }}>
+          <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: 'clamp(24px,4vw,48px)', fontWeight: 700, color: 'var(--text-high)', lineHeight: 1.15, letterSpacing: '-0.5px', marginBottom: 0 }}>
             44+ Spaces for every conversation
           </h2>
         </div>

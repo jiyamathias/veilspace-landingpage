@@ -282,7 +282,7 @@ export default function Hero() {
               </div>
             ))}
           </div>
-          <div style={{ fontSize: 11, color: 'var(--text-med)', marginTop: 8 }}>New persona, every post</div>
+          <div style={{ fontSize: 11, color: 'var(--text-med)', marginTop: 8 }}>New persona, every space</div>
         </div>
       </div>
 

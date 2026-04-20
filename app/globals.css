@@ -103,3 +103,100 @@ body::before {
   position: relative;
   z-index: 5;
 }
+
+/* ═══════════════════════════════════════════════════
+   GLOBAL MOBILE RESPONSIVE OVERRIDES
+   ═══════════════════════════════════════════════════ */
+
+/* ── Navbar ── */
+@media (max-width: 768px) {
+  .nav-links-desktop { display: none !important; }
+}
+
+/* ── General section padding ── */
+@media (max-width: 768px) {
+  section {
+    padding-left: 6% !important;
+    padding-right: 6% !important;
+    padding-top: 72px !important;
+    padding-bottom: 72px !important;
+  }
+}
+@media (max-width: 480px) {
+  section {
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
+}
+
+/* ── How It Works grid ── */
+@media (max-width: 600px) {
+  .how-steps-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── Features grid ── */
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .features-grid > div:first-child {
+    grid-column: span 1 !important;
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+}
+
+/* ── Spaces header ── */
+@media (max-width: 640px) {
+  .spaces-header-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+}
+
+/* ── Waitlist form ── */
+@media (max-width: 560px) {
+  .waitlist-form-row {
+    flex-direction: column !important;
+  }
+  .waitlist-form-row input,
+  .waitlist-form-row button {
+    width: 100% !important;
+    border-radius: 16px !important;
+  }
+}
+
+/* ── Footer ── */
+@media (max-width: 768px) {
+  .footer-inner-row {
+    flex-direction: column !important;
+    gap: 32px !important;
+  }
+}
+
+/* ── App preview screens scroll ── */
+@media (max-width: 640px) {
+  .screens-scroll {
+    gap: 14px !important;
+    padding-bottom: 16px !important;
+  }
+  .screen-card-item {
+    width: 160px !important;
+  }
+  .screen-card-frame {
+    width: 160px !important;
+    height: 332px !important;
+    border-radius: 24px !important;
+  }
+}
+
+/* ── Hero phone showcase ── */
+@media (max-width: 480px) {
+  .phone-showcase-wrap {
+    padding-bottom: 64px !important;
+  }
+}

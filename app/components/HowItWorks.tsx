@@ -18,19 +18,22 @@ export default function HowItWorks() {
       }}
     >
       <div className="section-label">How it Works</div>
-      <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: 'clamp(28px,4vw,48px)', fontWeight: 700, color: 'var(--text-high)', lineHeight: 1.15, letterSpacing: '-0.5px', marginBottom: 16 }}>
+      <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: 'clamp(26px,4vw,48px)', fontWeight: 700, color: 'var(--text-high)', lineHeight: 1.15, letterSpacing: '-0.5px', marginBottom: 16 }}>
         Three steps to true freedom
       </h2>
       <p style={{ fontSize: 17, color: 'var(--text-med)', lineHeight: 1.7, maxWidth: 560 }}>
         No social baggage. No profile picture. No algorithm tracking your every move.
       </p>
 
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-        gap: 24,
-        marginTop: 60,
-      }}>
+      <div
+        className="how-steps-grid"
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+          gap: 24,
+          marginTop: 60,
+        }}
+      >
         {steps.map((step, i) => (
           <div
             key={step.num}

@@ -1,9 +1,9 @@
 'use client';
-import Image from 'next/image';
 
 export default function Hero() {
   return (
     <>
+      {/* ── HERO SECTION ── overflow visible so phone below never clips */}
       <section
         id="home"
         style={{
@@ -14,71 +14,52 @@ export default function Hero() {
           justifyContent: 'center',
           textAlign: 'center',
           padding: '120px 5% 80px',
-          overflow: 'hidden',
+          overflow: 'visible', /* FIXED: was 'hidden', phone was clipping under it */
         }}
       >
-        {/* Ambient orbs */}
+        {/* Ambient orbs — clipped to section via pseudo wrapper */}
         <div style={{
-          position: 'absolute', borderRadius: '50%', filter: 'blur(80px)', pointerEvents: 'none',
-          width: 600, height: 600,
-          background: 'radial-gradient(circle, rgba(124,111,255,0.18) 0%, transparent 70%)',
-          top: -100, left: -150,
-          animation: 'drift 12s ease-in-out infinite alternate',
-        }} />
-        <div style={{
-          position: 'absolute', borderRadius: '50%', filter: 'blur(80px)', pointerEvents: 'none',
-          width: 500, height: 500,
-          background: 'radial-gradient(circle, rgba(170,123,255,0.14) 0%, transparent 70%)',
-          top: 50, right: -100,
-          animation: 'drift 12s ease-in-out infinite alternate',
-          animationDelay: '-4s',
-        }} />
-        <div style={{
-          position: 'absolute', borderRadius: '50%', filter: 'blur(80px)', pointerEvents: 'none',
-          width: 400, height: 400,
-          background: 'radial-gradient(circle, rgba(249,115,22,0.08) 0%, transparent 70%)',
-          bottom: 0, left: '30%',
-          animation: 'drift 12s ease-in-out infinite alternate',
-          animationDelay: '-8s',
-        }} />
+          position: 'absolute', inset: 0, overflow: 'hidden',
+          pointerEvents: 'none', zIndex: 0,
+        }}>
+          <div style={{
+            position: 'absolute', borderRadius: '50%', filter: 'blur(80px)',
+            width: 600, height: 600,
+            background: 'radial-gradient(circle, rgba(124,111,255,0.18) 0%, transparent 70%)',
+            top: -100, left: -150,
+            animation: 'drift 12s ease-in-out infinite alternate',
+          }} />
+          <div style={{
+            position: 'absolute', borderRadius: '50%', filter: 'blur(80px)',
+            width: 500, height: 500,
+            background: 'radial-gradient(circle, rgba(170,123,255,0.14) 0%, transparent 70%)',
+            top: 50, right: -100,
+            animation: 'drift 12s ease-in-out infinite alternate',
+            animationDelay: '-4s',
+          }} />
+          <div style={{
+            position: 'absolute', borderRadius: '50%', filter: 'blur(80px)',
+            width: 400, height: 400,
+            background: 'radial-gradient(circle, rgba(249,115,22,0.08) 0%, transparent 70%)',
+            bottom: 0, left: '30%',
+            animation: 'drift 12s ease-in-out infinite alternate',
+            animationDelay: '-8s',
+          }} />
+          {/* Grid pattern */}
+          <div style={{
+            position: 'absolute', inset: 0,
+            backgroundImage: 'linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px)',
+            backgroundSize: '60px 60px',
+            maskImage: 'radial-gradient(ellipse 80% 70% at 50% 50%, black 20%, transparent 80%)',
+            WebkitMaskImage: 'radial-gradient(ellipse 80% 70% at 50% 50%, black 20%, transparent 80%)',
+            opacity: 0.4,
+          }} />
+        </div>
 
-        {/* Grid pattern */}
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          backgroundImage: 'linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px)',
-          backgroundSize: '60px 60px',
-          maskImage: 'radial-gradient(ellipse 80% 70% at 50% 50%, black 20%, transparent 80%)',
-          WebkitMaskImage: 'radial-gradient(ellipse 80% 70% at 50% 50%, black 20%, transparent 80%)',
-          opacity: 0.4,
-        }} />
-
-        <div style={{ position: 'relative', zIndex: 2, maxWidth: 820 }}>
-          {/* Badge */}
-          {/* <div style={{
-            display: 'inline-flex', alignItems: 'center', gap: 8,
-            background: 'rgba(124, 111, 255, 0.1)',
-            border: '1px solid rgba(124, 111, 255, 0.25)',
-            borderRadius: 100, padding: '6px 16px',
-            fontSize: 12, fontWeight: 600,
-            color: 'var(--primary-glow)',
-            letterSpacing: '0.5px', textTransform: 'uppercase',
-            marginBottom: 32,
-            animation: 'fadeUp 0.8s ease both',
-          }}>
-            <div style={{
-              width: 6, height: 6,
-              background: 'var(--primary-glow)',
-              borderRadius: '50%',
-              boxShadow: '0 0 8px var(--primary-glow)',
-              animation: 'pulse-anim 2s ease infinite',
-            }} />
-            Now accepting early access
-          </div> */}
-
+        <div style={{ position: 'relative', zIndex: 2, maxWidth: 820, width: '100%' }}>
           <h1 style={{
             fontFamily: "'Cinzel', serif",
-            fontSize: 'clamp(42px, 7vw, 88px)',
+            fontSize: 'clamp(38px, 7vw, 88px)',
             fontWeight: 900,
             lineHeight: 1.0,
             letterSpacing: '-1px',
@@ -99,10 +80,12 @@ export default function Hero() {
           </h1>
 
           <p style={{
-            fontSize: 'clamp(16px, 2.5vw, 20px)',
+            fontSize: 'clamp(15px, 2.5vw, 20px)',
             color: 'var(--text-med)',
-            lineHeight: 1.7, maxWidth: 560,
-            margin: '0 auto 20px', fontWeight: 400,
+            lineHeight: 1.7,
+            maxWidth: 560,
+            margin: '0 auto 20px',
+            fontWeight: 400,
             animation: 'fadeUp 0.8s ease 0.2s both',
           }}>
             A safe space for honest conversations. Post anonymously in topic-based Spaces, connect without judgment, and finally say what you actually mean.
@@ -110,9 +93,10 @@ export default function Hero() {
 
           <p style={{
             fontFamily: "'Cinzel', serif",
-            fontSize: 'clamp(13px, 1.5vw, 15px)',
+            fontSize: 'clamp(11px, 1.5vw, 15px)',
             color: 'var(--text-low)',
-            letterSpacing: '3px', textTransform: 'uppercase',
+            letterSpacing: '3px',
+            textTransform: 'uppercase',
             marginBottom: 48,
             animation: 'fadeUp 0.8s ease 0.25s both',
           }}>
@@ -148,112 +132,143 @@ export default function Hero() {
               Watch Demo
             </a>
           </div>
-
-          {/* Social proof */}
-          {/* <div style={{
-            marginTop: 48, display: 'flex', alignItems: 'center',
-            justifyContent: 'center', gap: 20,
-            animation: 'fadeUp 0.8s ease 0.45s both',
-          }}>
-            <div style={{ display: 'flex' }}>
-              {[11, 32, 47, 22, 58].map((img, i) => (
-                <img key={img} src={`https://i.pravatar.cc/68?img=${img}`} alt=""
-                  style={{
-                    width: 34, height: 34, borderRadius: '50%',
-                    border: '2px solid var(--bg)',
-                    marginLeft: i === 0 ? 0 : -10,
-                    objectFit: 'cover',
-                  }}
-                />
-              ))}
-            </div>
-            <div style={{ fontSize: 13, color: 'var(--text-med)', textAlign: 'left' }}>
-              <strong style={{ color: 'var(--text-high)', fontWeight: 700 }}>2,400+</strong> people already on the waitlist<br />
-              Launching on both iOS &amp; Android
-            </div>
-          </div> */}
         </div>
       </section>
 
-      {/* Phone showcase */}
+      {/* ── PHONE SHOWCASE ──
+           Sits OUTSIDE the hero section so it never clips under it.
+           Uses position:relative + high z-index so it floats on top of whatever follows.
+      */}
       <div style={{
-        position: 'relative', padding: '0 5% 120px',
-        display: 'flex', justifyContent: 'center', overflow: 'hidden',
+        position: 'relative',
+        zIndex: 10,
+        padding: '0 5% 100px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        /* Extra top padding gives breathing room between hero text and phone */
+        marginTop: -40,
+        /* Clip orb glows at left/right edges without hiding the phone vertically */
+        overflowX: 'clip',
       }}>
-        {/* Left floating card */}
-        <div style={{
-          position: 'absolute',
-          background: 'var(--card)',
-          border: '1px solid var(--border-bright)',
-          borderRadius: 16, padding: '12px 16px',
-          fontSize: 12, backdropFilter: 'blur(10px)',
-          animation: 'floatCard-anim 8s ease-in-out infinite',
-          animationDelay: '-2s',
-          boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
-          left: 'calc(50% - 280px)',
-          top: 120, maxWidth: 180,
-        }}>
+
+        {/* ── LEFT FLOATING CARD ── hidden on mobile via CSS class */}
+        <div className="phone-side-card phone-side-card--left">
           <div style={{ fontSize: 9, textTransform: 'uppercase', letterSpacing: 1, color: 'var(--text-low)', marginBottom: 4, fontWeight: 600 }}>Active Spaces</div>
           <div style={{ fontSize: 20, fontWeight: 800, color: 'var(--text-high)' }}>44</div>
           <div style={{ fontSize: 11, color: 'var(--text-med)', marginTop: 2 }}>💜 Mental Health · 🔥 Real Talk · 🎭 Confessions + more</div>
         </div>
 
-        {/* Phone mockup */}
-        <div style={{ position: 'relative', width: 280, animation: 'float-anim 6s ease-in-out infinite' }}>
+        {/* ── PHONE MOCKUP ── */}
+        <div style={{
+          position: 'relative',
+          flexShrink: 0,
+          animation: 'float-anim 6s ease-in-out infinite',
+        }}>
+          {/* Phone shell */}
           <div style={{
-            width: 280, height: 580,
-            background: 'var(--card)',
+            width: 280,
+            height: 580,
             borderRadius: 44,
             border: '2px solid var(--border-bright)',
             overflow: 'hidden',
             position: 'relative',
-            boxShadow: '0 40px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04), inset 0 1px 0 rgba(255,255,255,0.06), 0 0 60px rgba(124, 111, 255, 0.15)',
+            boxShadow: '0 40px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04), inset 0 1px 0 rgba(255,255,255,0.06), 0 0 60px rgba(124,111,255,0.2)',
           }}>
-            {/* Notch */}
+            {/*
+              ── PLACEHOLDER PHONE IMAGE ──
+              To swap in your real Canva screenshot:
+              1. Export as PNG, place at:  public/images/phone-hero.png
+              2. Replace everything inside this shell div with:
+                 <img src="/images/phone-hero.png" alt="VeilSpace app" style={{ width:'100%', height:'100%', objectFit:'cover', display:'block' }} />
+            */}
             <div style={{
-              position: 'absolute', top: 14, left: '50%', transform: 'translateX(-50%)',
-              width: 100, height: 26, background: 'var(--bg)', borderRadius: 100, zIndex: 10,
-            }} />
-            {/* Screen */}
-            <div style={{ width: '100%', height: '100%', background: 'var(--bg)', padding: '50px 0 0', overflow: 'hidden' }}>
-              <div style={{ padding: '0 16px 12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid var(--border)' }}>
-                <span style={{ fontFamily: "'Cinzel', serif", fontSize: 13, fontWeight: 700, color: 'var(--text-high)', letterSpacing: '0.3px' }}>VeilSpace</span>
-                <div style={{ width: 22, height: 22, background: 'var(--primary)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 10, fontWeight: 700, color: '#fff' }}>3</div>
+              width: '100%',
+              height: '100%',
+              background: 'linear-gradient(160deg, #1C1A28 0%, #0C0B12 100%)',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: 16,
+              position: 'relative',
+            }}>
+              {/* Notch */}
+              <div style={{
+                position: 'absolute', top: 14, left: '50%', transform: 'translateX(-50%)',
+                width: 100, height: 26,
+                background: '#0C0B12',
+                borderRadius: 100, zIndex: 10,
+              }} />
+
+              {/* Decorative glow blob inside */}
+              <div style={{
+                position: 'absolute',
+                width: 200, height: 200,
+                background: 'radial-gradient(circle, rgba(124,111,255,0.25) 0%, transparent 70%)',
+                borderRadius: '50%',
+                top: '20%', left: '50%',
+                transform: 'translateX(-50%)',
+                filter: 'blur(30px)',
+              }} />
+
+              {/* Icon */}
+              <div style={{
+                width: 72, height: 72,
+                borderRadius: 20,
+                overflow: 'hidden',
+                boxShadow: '0 8px 30px rgba(124,111,255,0.5)',
+                position: 'relative', zIndex: 2,
+                flexShrink: 0,
+              }}>
+                <img src="/logo.png" alt="VeilSpace" style={{ width:'100%', height:'100%', objectFit:'cover', display:'block' }} />
               </div>
-              {[
-                { grad: '135deg,#7C6FFF,#AA7BFF', initial: 'S', name: 'Silent Raven', tag: '💜 Mental Health', text: 'Finally opened up to my therapist about everything. It felt terrifying and freeing at the same time.', react: '💜 14', reply: '💬 5' },
-                { grad: '135deg,#F97316,#FBBF24', initial: 'M', name: 'Midnight Fox', tag: '🔥 Real Talk', text: 'Hot take: most "motivational" content on social media is just guilt-tripping in a nice font.', react: '🔥 31', reply: '💬 12' },
-                { grad: '135deg,#22C55E,#38BDF8', initial: 'V', name: 'Velvet Echo', tag: '❤️ Relationships', text: 'When you realize your "best friend" only calls when they need something...', react: '❤️ 22', reply: '💬 8' },
-              ].map((post, i) => (
-                <div key={i} style={{ margin: `${i === 0 ? 12 : 8}px 12px 0`, background: 'var(--card)', borderRadius: 16, padding: 12, border: '1px solid var(--border)' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
-                    <div style={{ width: 28, height: 28, borderRadius: '50%', background: `linear-gradient(${post.grad})`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 11, fontWeight: 700, color: '#fff' }}>{post.initial}</div>
-                    <span style={{ fontSize: 11, fontWeight: 700, color: 'var(--primary-glow)' }}>{post.name}</span>
-                    <span style={{ marginLeft: 'auto', background: 'rgba(124,111,255,0.12)', border: '1px solid rgba(124,111,255,0.2)', borderRadius: 100, padding: '2px 8px', fontSize: 9, fontWeight: 600, color: 'var(--primary-glow)' }}>{post.tag}</span>
-                  </div>
-                  <p style={{ fontSize: 11, lineHeight: 1.55, color: 'var(--text-high)', marginBottom: 8 }}>{post.text}</p>
-                  <div style={{ display: 'flex', gap: 12 }}>
-                    <span style={{ fontSize: 10, color: 'var(--text-low)' }}>{post.react}</span>
-                    <span style={{ fontSize: 10, color: 'var(--text-low)' }}>{post.reply}</span>
-                  </div>
-                </div>
-              ))}
+
+              <div style={{
+                fontFamily: "'Cinzel', serif",
+                fontSize: 18, fontWeight: 700,
+                color: 'var(--text-high)',
+                letterSpacing: 1,
+                position: 'relative', zIndex: 2,
+              }}>VeilSpace</div>
+
+              <div style={{
+                fontSize: 11,
+                color: 'var(--text-low)',
+                textAlign: 'center',
+                padding: '0 24px',
+                lineHeight: 1.5,
+                position: 'relative', zIndex: 2,
+              }}>
+                Screenshot coming soon
+              </div>
+
+              {/* Bottom bar decoration */}
+              <div style={{
+                position: 'absolute',
+                bottom: 20, left: '50%',
+                transform: 'translateX(-50%)',
+                width: 120, height: 4,
+                background: 'var(--border-bright)',
+                borderRadius: 100,
+              }} />
             </div>
           </div>
-          <div style={{ position: 'absolute', bottom: -40, left: '50%', transform: 'translateX(-50%)', width: 200, height: 80, background: 'var(--primary)', filter: 'blur(40px)', opacity: 0.3, borderRadius: '50%' }} />
+
+          {/* Glow under phone */}
+          <div style={{
+            position: 'absolute', bottom: -40, left: '50%',
+            transform: 'translateX(-50%)',
+            width: 200, height: 80,
+            background: 'var(--primary)',
+            filter: 'blur(40px)',
+            opacity: 0.25,
+            borderRadius: '50%',
+          }} />
         </div>
 
-        {/* Right floating card */}
-        <div style={{
-          position: 'absolute',
-          background: 'var(--card)', border: '1px solid var(--border-bright)',
-          borderRadius: 16, padding: '12px 16px', fontSize: 12,
-          backdropFilter: 'blur(10px)',
-          animation: 'floatCard-anim 8s ease-in-out infinite',
-          animationDelay: '-5s',
-          boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
-          right: 'calc(50% - 280px)', top: 200, maxWidth: 175,
-        }}>
+        {/* ── RIGHT FLOATING CARD ── hidden on mobile */}
+        <div className="phone-side-card phone-side-card--right">
           <div style={{ fontSize: 9, textTransform: 'uppercase', letterSpacing: 1, color: 'var(--text-low)', marginBottom: 4, fontWeight: 600 }}>Anonymous Identity</div>
           <div style={{ marginTop: 4 }}>
             {[
@@ -262,7 +277,7 @@ export default function Hero() {
               { color: '#22C55E', name: 'Velvet Echo' },
             ].map(item => (
               <div key={item.name} style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 6 }}>
-                <span style={{ width: 8, height: 8, borderRadius: '50%', background: item.color, display: 'inline-block' }} />
+                <span style={{ width: 8, height: 8, borderRadius: '50%', background: item.color, display: 'inline-block', flexShrink: 0 }} />
                 <span style={{ fontSize: 12, color: 'var(--text-high)', fontWeight: 600 }}>{item.name}</span>
               </div>
             ))}
@@ -270,6 +285,39 @@ export default function Hero() {
           <div style={{ fontSize: 11, color: 'var(--text-med)', marginTop: 8 }}>New persona, every post</div>
         </div>
       </div>
+
+      {/* ── PHONE SHOWCASE RESPONSIVE STYLES ── */}
+      <style>{`
+        /* Side cards: absolutely positioned relative to the showcase on desktop */
+        .phone-side-card {
+          position: absolute;
+          background: var(--card);
+          border: 1px solid var(--border-bright);
+          border-radius: 16px;
+          padding: 12px 16px;
+          font-size: 12px;
+          backdrop-filter: blur(10px);
+          box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+          max-width: 180px;
+        }
+        .phone-side-card--left {
+          left: calc(50% - 320px);
+          top: 100px;
+          animation: floatCard-anim 8s ease-in-out infinite;
+          animation-delay: -2s;
+        }
+        .phone-side-card--right {
+          right: calc(50% - 320px);
+          top: 180px;
+          animation: floatCard-anim 8s ease-in-out infinite;
+          animation-delay: -5s;
+        }
+
+        /* Below 900px: hide side cards, centre phone cleanly */
+        @media (max-width: 900px) {
+          .phone-side-card { display: none !important; }
+        }
+      `}</style>
     </>
   );
 }

@@ -17,7 +17,7 @@ export default function Home() {
       <Hero />
       <HowItWorks />
       <Features />
-      <VideoDemo />
+      {/* <VideoDemo /> */}
       <AppPreview />
       <Spaces />
       <Waitlist />

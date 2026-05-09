@@ -161,60 +161,69 @@ export default function AppPreview() {
           }}
           onClick={() => setLightbox(null)}
         >
-          {/* Prev button */}
-          <button
-            onClick={e => { e.stopPropagation(); setLightbox({ index: (lightbox.index - 1 + screens.length) % screens.length }); }}
-            style={{
-              position: 'absolute', left: 20, top: '50%', transform: 'translateY(-50%)',
-              background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)',
-              borderRadius: '50%', width: 48, height: 48, cursor: 'pointer',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              color: '#fff', fontSize: 20, transition: 'background 0.2s',
-              backdropFilter: 'blur(6px)',
-            }}
-            onMouseEnter={e => (e.currentTarget.style.background = 'rgba(124,111,255,0.25)')}
-            onMouseLeave={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.07)')}
-          >
-            ‹
-          </button>
-
-          {/* Phone frame */}
+          {/* Phone + nav buttons row — buttons always flank the phone */}
           <div
             onClick={e => e.stopPropagation()}
             style={{
-              position: 'relative',
-              width: 'min(320px, 85vw)',
-              aspectRatio: '9/19.5',
-              borderRadius: 48,
-              border: '2px solid rgba(255,255,255,0.12)',
-              overflow: 'hidden',
-              boxShadow: '0 40px 120px rgba(0,0,0,0.8), 0 0 80px rgba(124,111,255,0.2)',
-              animation: 'popIn 0.25s cubic-bezier(0.34,1.56,0.64,1)',
-            }}
-          >
-            <img
-              src={screens[lightbox.index].imagePath}
-              alt={screens[lightbox.index].imageAlt}
-              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-            />
-          </div>
-
-          {/* Next button */}
-          <button
-            onClick={e => { e.stopPropagation(); setLightbox({ index: (lightbox.index + 1) % screens.length }); }}
-            style={{
-              position: 'absolute', right: 20, top: '50%', transform: 'translateY(-50%)',
-              background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)',
-              borderRadius: '50%', width: 48, height: 48, cursor: 'pointer',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              color: '#fff', fontSize: 20, transition: 'background 0.2s',
-              backdropFilter: 'blur(6px)',
+              gap: 16, width: '100%', padding: '0 12px', boxSizing: 'border-box',
             }}
-            onMouseEnter={e => (e.currentTarget.style.background = 'rgba(124,111,255,0.25)')}
-            onMouseLeave={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.07)')}
           >
-            ›
-          </button>
+            {/* Prev button */}
+            <button
+              onClick={e => { e.stopPropagation(); setLightbox({ index: (lightbox.index - 1 + screens.length) % screens.length }); }}
+              style={{
+                flexShrink: 0,
+                background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)',
+                borderRadius: '50%', width: 44, height: 44, cursor: 'pointer',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                color: '#fff', fontSize: 20, transition: 'background 0.2s',
+                backdropFilter: 'blur(6px)',
+              }}
+              onMouseEnter={e => (e.currentTarget.style.background = 'rgba(124,111,255,0.25)')}
+              onMouseLeave={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.07)')}
+            >
+              ‹
+            </button>
+
+            {/* Phone frame */}
+            <div
+              style={{
+                position: 'relative',
+                width: 'min(300px, calc(100vw - 120px))',
+                aspectRatio: '9/19.5',
+                borderRadius: 48,
+                border: '2px solid rgba(255,255,255,0.12)',
+                overflow: 'hidden',
+                boxShadow: '0 40px 120px rgba(0,0,0,0.8), 0 0 80px rgba(124,111,255,0.2)',
+                animation: 'popIn 0.25s cubic-bezier(0.34,1.56,0.64,1)',
+                flexShrink: 0,
+              }}
+            >
+              <img
+                src={screens[lightbox.index].imagePath}
+                alt={screens[lightbox.index].imageAlt}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+              />
+            </div>
+
+            {/* Next button */}
+            <button
+              onClick={e => { e.stopPropagation(); setLightbox({ index: (lightbox.index + 1) % screens.length }); }}
+              style={{
+                flexShrink: 0,
+                background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)',
+                borderRadius: '50%', width: 44, height: 44, cursor: 'pointer',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                color: '#fff', fontSize: 20, transition: 'background 0.2s',
+                backdropFilter: 'blur(6px)',
+              }}
+              onMouseEnter={e => (e.currentTarget.style.background = 'rgba(124,111,255,0.25)')}
+              onMouseLeave={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.07)')}
+            >
+              ›
+            </button>
+          </div>
 
           {/* Label + dots */}
           <div style={{

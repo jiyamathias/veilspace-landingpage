@@ -117,7 +117,7 @@ export default function Hero() {
               transition: 'transform 0.2s, box-shadow 0.2s',
               letterSpacing: '0.2px',
             }}>Join the Waitlist</a>
-          
+
             {/* <a href="#demo" style={{
               background: 'transparent', color: 'var(--text-med)',
               padding: '15px 32px', borderRadius: 100, fontSize: 15, fontWeight: 600,

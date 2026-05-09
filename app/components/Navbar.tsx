@@ -57,8 +57,8 @@ export default function Navbar() {
 
       {/* Nav links — hidden on mobile via CSS */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 32 }} className="nav-links-desktop">
-        {['How it Works', 'Features', 'Spaces', 'Demo'].map((label, i) => {
-          const hrefs = ['#how', '#features', '#spaces', '#demo'];
+        {['How it Works', 'Features', 'Spaces', 'App Preview'].map((label, i) => {
+          const hrefs = ['#how', '#features', '#spaces', '#preview'];
           return (
             <a
               key={label}

@@ -27,7 +27,7 @@ export default function Footer() {
           { label: 'Features', href: '/#features' },
           { label: 'Spaces', href: '/#spaces' },
           // { label: 'Demo', href: '/#demo' },
-          { label: 'Preview', href: '/#preview' },
+          { label: 'App Preview', href: '/#preview' },
         ]} />
         <FooterCol title="Company" links={[
           { label: 'About', href: '/about' },

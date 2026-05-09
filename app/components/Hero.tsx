@@ -117,7 +117,8 @@ export default function Hero() {
               transition: 'transform 0.2s, box-shadow 0.2s',
               letterSpacing: '0.2px',
             }}>Join the Waitlist</a>
-            <a href="#demo" style={{
+
+            {/* <a href="#demo" style={{
               background: 'transparent', color: 'var(--text-med)',
               padding: '15px 32px', borderRadius: 100, fontSize: 15, fontWeight: 600,
               textDecoration: 'none',
@@ -130,6 +131,21 @@ export default function Hero() {
                 <polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none" />
               </svg>
               Watch Demo
+            </a> */}
+
+            <a href="#preview" style={{
+              background: 'transparent', color: 'var(--text-med)',
+              padding: '15px 32px', borderRadius: 100, fontSize: 15, fontWeight: 600,
+              textDecoration: 'none',
+              border: '1px solid var(--border-bright)',
+              display: 'flex', alignItems: 'center', gap: 8,
+              transition: 'border-color 0.2s, color 0.2s, background 0.2s',
+            }}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} width={16} height={16}>
+                <circle cx={12} cy={12} r={10} />
+                <polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none" />
+              </svg>
+              App Preview
             </a>
           </div>
         </div>
@@ -155,7 +171,7 @@ export default function Hero() {
         {/* ── LEFT FLOATING CARD ── hidden on mobile via CSS class */}
         <div className="phone-side-card phone-side-card--left">
           <div style={{ fontSize: 9, textTransform: 'uppercase', letterSpacing: 1, color: 'var(--text-low)', marginBottom: 4, fontWeight: 600 }}>Active Spaces</div>
-          <div style={{ fontSize: 20, fontWeight: 800, color: 'var(--text-high)' }}>44</div>
+          <div style={{ fontSize: 20, fontWeight: 800, color: 'var(--text-high)' }}>44+</div>
           <div style={{ fontSize: 11, color: 'var(--text-med)', marginTop: 2 }}>💜 Mental Health · 🔥 Real Talk · 🎭 Confessions + more</div>
         </div>
 
@@ -175,84 +191,11 @@ export default function Hero() {
             position: 'relative',
             boxShadow: '0 40px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04), inset 0 1px 0 rgba(255,255,255,0.06), 0 0 60px rgba(124,111,255,0.2)',
           }}>
-            {/*
-              ── PLACEHOLDER PHONE IMAGE ──
-              To swap in your real Canva screenshot:
-              1. Export as PNG, place at:  public/images/phone-hero.png
-              2. Replace everything inside this shell div with:
-                 <img src="/images/phone-hero.png" alt="VeilSpace app" style={{ width:'100%', height:'100%', objectFit:'cover', display:'block' }} />
-            */}
-            <div style={{
-              width: '100%',
-              height: '100%',
-              background: 'linear-gradient(160deg, #1C1A28 0%, #0C0B12 100%)',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: 16,
-              position: 'relative',
-            }}>
-              {/* Notch */}
-              <div style={{
-                position: 'absolute', top: 14, left: '50%', transform: 'translateX(-50%)',
-                width: 100, height: 26,
-                background: '#0C0B12',
-                borderRadius: 100, zIndex: 10,
-              }} />
-
-              {/* Decorative glow blob inside */}
-              <div style={{
-                position: 'absolute',
-                width: 200, height: 200,
-                background: 'radial-gradient(circle, rgba(124,111,255,0.25) 0%, transparent 70%)',
-                borderRadius: '50%',
-                top: '20%', left: '50%',
-                transform: 'translateX(-50%)',
-                filter: 'blur(30px)',
-              }} />
-
-              {/* Icon */}
-              <div style={{
-                width: 72, height: 72,
-                borderRadius: 20,
-                overflow: 'hidden',
-                boxShadow: '0 8px 30px rgba(124,111,255,0.5)',
-                position: 'relative', zIndex: 2,
-                flexShrink: 0,
-              }}>
-                <img src="/logo.png" alt="VeilSpace" style={{ width:'100%', height:'100%', objectFit:'cover', display:'block' }} />
-              </div>
-
-              <div style={{
-                fontFamily: "'Cinzel', serif",
-                fontSize: 18, fontWeight: 700,
-                color: 'var(--text-high)',
-                letterSpacing: 1,
-                position: 'relative', zIndex: 2,
-              }}>VeilSpace</div>
-
-              <div style={{
-                fontSize: 11,
-                color: 'var(--text-low)',
-                textAlign: 'center',
-                padding: '0 24px',
-                lineHeight: 1.5,
-                position: 'relative', zIndex: 2,
-              }}>
-                Screenshot coming soon
-              </div>
-
-              {/* Bottom bar decoration */}
-              <div style={{
-                position: 'absolute',
-                bottom: 20, left: '50%',
-                transform: 'translateX(-50%)',
-                width: 120, height: 4,
-                background: 'var(--border-bright)',
-                borderRadius: 100,
-              }} />
-            </div>
+            <img
+              src="/images/screens/feed.png"
+              alt="VeilSpace home feed"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            />
           </div>
 
           {/* Glow under phone */}

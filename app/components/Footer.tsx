@@ -26,7 +26,8 @@ export default function Footer() {
           { label: 'How it Works', href: '/#how' },
           { label: 'Features', href: '/#features' },
           { label: 'Spaces', href: '/#spaces' },
-          { label: 'Demo', href: '/#demo' },
+          // { label: 'Demo', href: '/#demo' },
+          { label: 'Preview', href: '/#preview' },
         ]} />
         <FooterCol title="Company" links={[
           { label: 'About', href: '/about' },
@@ -40,7 +41,7 @@ export default function Footer() {
       </div>
 
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: 24, borderTop: '1px solid var(--border)', flexWrap: 'wrap', gap: 12 }}>
-        <p style={{ fontSize: 12, color: 'var(--text-low)' }}>© 2025 VeilSpace. All rights reserved.</p>
+        <p style={{ fontSize: 12, color: 'var(--text-low)' }}>© 2026 VeilSpace. All rights reserved.</p>
         <span style={{ fontFamily: "'Cinzel', serif", fontSize: 13, color: 'var(--primary-glow)', letterSpacing: '0.5px' }}>veils.space</span>
       </div>
     </footer>

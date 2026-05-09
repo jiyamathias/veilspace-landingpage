@@ -1,11 +1,15 @@
 'use client';
 
 const screens = [
-  { label: 'Login / Sign Up',  imagePath: '/images/screens/auth.png',    imageAlt: 'Login screen' },
-  { label: 'Home Feed',        imagePath: '/images/screens/feed.png',     imageAlt: 'Feed screen' },
-  { label: 'Discover Spaces',  imagePath: '/images/screens/discover.png', imageAlt: 'Discover screen' },
-  { label: 'Post & Comments',  imagePath: '/images/screens/post.png',     imageAlt: 'Post & Comments screen' },
-  { label: 'Compose Post',     imagePath: '/images/screens/compose.png',  imageAlt: 'Compose screen' },
+  { label: 'Sign In',          imagePath: '/images/screens/auth.png',         imageAlt: 'Sign in screen' },
+  { label: 'Sign Up',          imagePath: '/images/screens/signup.png',        imageAlt: 'Sign up screen' },
+  { label: 'Home Feed',        imagePath: '/images/screens/feed.png',          imageAlt: 'Home feed screen' },
+  { label: 'Discover Spaces',  imagePath: '/images/screens/discover.png',      imageAlt: 'Discover screen' },
+  { label: 'Spaces',           imagePath: '/images/screens/spaces.png',        imageAlt: 'Spaces screen' },
+  { label: 'Space Detail',     imagePath: '/images/screens/post.png',          imageAlt: 'Space detail screen' },
+  { label: 'Create Post',      imagePath: '/images/screens/compose.png',       imageAlt: 'Create post screen' },
+  { label: 'Create Space',     imagePath: '/images/screens/create-space.png',  imageAlt: 'Create space screen' },
+  { label: 'Profile',          imagePath: '/images/screens/profile.png',       imageAlt: 'Profile screen' },
 ];
 
 export default function AppPreview() {
@@ -100,70 +104,11 @@ export default function AppPreview() {
                   position: 'relative',
                 }}
               >
-                {/*
-                  ── PLACEHOLDER — swap with your Canva screenshot ──
-                  When ready:
-                    1. Export PNG at 400×830px → public/images/screens/<name>.png
-                    2. Replace the placeholder div below with:
-                       <img src={screen.imagePath} alt={screen.imageAlt}
-                            style={{ width:'100%', height:'100%', objectFit:'cover', display:'block' }} />
-                */}
-                <div style={{
-                  width: '100%', height: '100%',
-                  background: 'linear-gradient(160deg, #1C1A28 0%, #0C0B12 100%)',
-                  display: 'flex', flexDirection: 'column',
-                  alignItems: 'center', justifyContent: 'center',
-                  gap: 12, position: 'relative',
-                }}>
-                  {/* Notch */}
-                  <div style={{
-                    position: 'absolute', top: 10, left: '50%',
-                    transform: 'translateX(-50%)',
-                    width: 70, height: 18,
-                    background: '#0C0B12', borderRadius: 100,
-                  }} />
-                  {/* Glow */}
-                  <div style={{
-                    position: 'absolute',
-                    width: 140, height: 140,
-                    background: 'radial-gradient(circle, rgba(124,111,255,0.18) 0%, transparent 70%)',
-                    borderRadius: '50%', top: '25%', left: '50%',
-                    transform: 'translateX(-50%)', filter: 'blur(20px)',
-                  }} />
-                  {/* Logo */}
-                  <div style={{
-                    width: 48, height: 48, borderRadius: 14,
-                    overflow: 'hidden',
-                    boxShadow: '0 6px 20px rgba(124,111,255,0.45)',
-                    position: 'relative', zIndex: 1, flexShrink: 0,
-                  }}>
-                    <img src="/logo.png" alt="VeilSpace" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-                  </div>
-                  {/* Screen name */}
-                  <div style={{
-                    fontFamily: "'Cinzel', serif",
-                    fontSize: 12, fontWeight: 700,
-                    color: 'var(--text-med)', letterSpacing: 0.5,
-                    position: 'relative', zIndex: 1,
-                    textAlign: 'center', padding: '0 16px',
-                  }}>
-                    {screen.label}
-                  </div>
-                  <div style={{
-                    fontSize: 9, color: 'var(--text-low)',
-                    position: 'relative', zIndex: 1,
-                    textAlign: 'center', padding: '0 16px', lineHeight: 1.5,
-                  }}>
-                    Screenshot placeholder<br />Replace with Canva export
-                  </div>
-                  {/* Home indicator */}
-                  <div style={{
-                    position: 'absolute', bottom: 12, left: '50%',
-                    transform: 'translateX(-50%)',
-                    width: 80, height: 3,
-                    background: 'var(--border-bright)', borderRadius: 100,
-                  }} />
-                </div>
+                <img
+                  src={screen.imagePath}
+                  alt={screen.imageAlt}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                />
               </div>
             </div>
 
